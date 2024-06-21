@@ -27,9 +27,7 @@ jobs:
        - name: Checkout
          uses: actions/checkout@master
          
-       - name: Installing Python
-         run: |
-            python -m pip install --upgrade pip
+       
 
          
        - name: Downloading Ozip Now
@@ -41,9 +39,14 @@ jobs:
        - name: Decrypting Ozip Now
          run: |
              sudo -E apt-get -qq update
-             sudo apt-get install python-pip
-             sudo -H pip install --upgrade pip
-             sudo -H pip install setuptools wheel docopt pycryptodome
+             sudo apt update
+              sudo apt install python3-pip
+              sudo apt install python3-pip
+              pip3 --version
+              sudo pip3 install --upgrade pip
+             sudo apt-get install python3-pip
+             sudo -H pip3 install --upgrade pip
+             sudo -H pip3 install setuptools wheel docopt pycryptodome
              wget https://raw.githubusercontent.com/techyminati/oppo_ozip_decrypt/master/ozipdecrypt.py
              sudo python ozipdecrypt.py $FIRMWARE_NAME             
              #zip -r CPH1969EX_11_OTA_1360_all_c81xKlgmMhob.zip
